@@ -1,0 +1,539 @@
+vrao@aspire:~/whisper$ python3 -m venv ./
+vrao@aspire:~/whisper$ ls
+approach.png  CHANGELOG.md  include                 lib    LICENSE      model-card.md  pyproject.toml  README.md         tests
+bin           data          language-breakdown.svg  lib64  MANIFEST.in  notebooks      pyvenv.cfg      requirements.txt  whisper
+vrao@aspire:~/whisper$ ./bin/^C
+vrao@aspire:~/whisper$ cd bin
+vrao@aspire:~/whisper/bin$ ls
+activate  activate.csh  activate.fish  Activate.ps1  pip  pip3  pip3.12  python  python3  python3.12
+vrao@aspire:~/whisper/bin$ ./python
+Python 3.12.3 (main, Mar 23 2026, 19:04:32) [GCC 13.3.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> version
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'version' is not defined
+>>> --version
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'version' is not defined
+>>> exit
+Use exit() or Ctrl-D (i.e. EOF) to exit
+>>> 
+vrao@aspire:~/whisper/bin$ ./pip
+
+Usage:   
+  pip <command> [options]
+
+Commands:
+  install                     Install packages.
+  download                    Download packages.
+  uninstall                   Uninstall packages.
+  freeze                      Output installed packages in requirements format.
+  inspect                     Inspect the python environment.
+  list                        List installed packages.
+  show                        Show information about installed packages.
+  check                       Verify installed packages have compatible dependencies.
+  config                      Manage local and global configuration.
+  search                      Search PyPI for packages.
+  cache                       Inspect and manage pip's wheel cache.
+  index                       Inspect information available from package indexes.
+  wheel                       Build wheels from your requirements.
+  hash                        Compute hashes of package archives.
+  completion                  A helper command used for command completion.
+  debug                       Show information useful for debugging.
+  help                        Show help for commands.
+
+General Options:
+  -h, --help                  Show help.
+  --debug                     Let unhandled exceptions propagate outside the main subroutine, instead of logging them to stderr.
+  --isolated                  Run pip in an isolated mode, ignoring environment variables and user configuration.
+  --require-virtualenv        Allow pip to only run in a virtual environment; exit with an error otherwise.
+  --python <python>           Run pip with the specified Python interpreter.
+  -v, --verbose               Give more output. Option is additive, and can be used up to 3 times.
+  -V, --version               Show version and exit.
+  -q, --quiet                 Give less output. Option is additive, and can be used up to 3 times (corresponding to WARNING, ERROR, and
+                              CRITICAL logging levels).
+  --log <path>                Path to a verbose appending log.
+  --no-input                  Disable prompting for input.
+  --keyring-provider <keyring_provider>
+                              Enable the credential lookup via the keyring library if user input is allowed. Specify which mechanism to
+                              use [disabled, import, subprocess]. (default: disabled)
+  --proxy <proxy>             Specify a proxy in the form scheme://[user:passwd@]proxy.server:port.
+  --retries <retries>         Maximum number of retries each connection should attempt (default 5 times).
+  --timeout <sec>             Set the socket timeout (default 15 seconds).
+  --exists-action <action>    Default action when a path already exists: (s)witch, (i)gnore, (w)ipe, (b)ackup, (a)bort.
+  --trusted-host <hostname>   Mark this host or host:port pair as trusted, even though it does not have valid or any HTTPS.
+  --cert <path>               Path to PEM-encoded CA certificate bundle. If provided, overrides the default. See 'SSL Certificate
+                              Verification' in pip documentation for more information.
+  --client-cert <path>        Path to SSL client certificate, a single file containing the private key and the certificate in PEM format.
+  --cache-dir <dir>           Store the cache data in <dir>.
+  --no-cache-dir              Disable the cache.
+  --disable-pip-version-check
+                              Don't periodically check PyPI to determine whether a new version of pip is available for download. Implied
+                              with --no-index.
+  --no-color                  Suppress colored output.
+  --no-python-version-warning
+                              Silence deprecation warnings for upcoming unsupported Pythons.
+  --use-feature <feature>     Enable new functionality, that may be backward incompatible.
+  --use-deprecated <feature>  Enable deprecated functionality, that will be removed in the future.
+vrao@aspire:~/whisper/bin$ cd ../
+vrao@aspire:~/whisper$ ./bin/pip install -U openai-whisper
+Collecting openai-whisper
+  Downloading openai_whisper-20250625.tar.gz (803 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 803.2/803.2 kB 3.1 MB/s eta 0:00:00
+  Installing build dependencies ... done
+  Getting requirements to build wheel ... done
+  Preparing metadata (pyproject.toml) ... done
+Collecting more-itertools (from openai-whisper)
+  Downloading more_itertools-11.0.2-py3-none-any.whl.metadata (41 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 41.4/41.4 kB 202.3 kB/s eta 0:00:00
+Collecting numba (from openai-whisper)
+  Downloading numba-0.65.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (2.9 kB)
+Collecting numpy (from openai-whisper)
+  Downloading numpy-2.4.4-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (6.6 kB)
+Collecting tiktoken (from openai-whisper)
+  Using cached tiktoken-0.12.0-cp312-cp312-manylinux_2_28_x86_64.whl.metadata (6.7 kB)
+Collecting torch (from openai-whisper)
+  Downloading torch-2.11.0-cp312-cp312-manylinux_2_28_x86_64.whl.metadata (29 kB)
+Collecting tqdm (from openai-whisper)
+  Downloading tqdm-4.67.3-py3-none-any.whl.metadata (57 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 57.7/57.7 kB 394.9 kB/s eta 0:00:00
+Collecting triton>=2 (from openai-whisper)
+  Downloading triton-3.6.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (1.7 kB)
+Collecting llvmlite<0.48,>=0.47.0dev0 (from numba->openai-whisper)
+  Downloading llvmlite-0.47.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (5.0 kB)
+Collecting regex>=2022.1.18 (from tiktoken->openai-whisper)
+  Downloading regex-2026.4.4-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (40 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 40.4/40.4 kB 303.9 kB/s eta 0:00:00
+Collecting requests>=2.26.0 (from tiktoken->openai-whisper)
+  Downloading requests-2.33.1-py3-none-any.whl.metadata (4.8 kB)
+Collecting filelock (from torch->openai-whisper)
+  Downloading filelock-3.29.0-py3-none-any.whl.metadata (2.0 kB)
+Collecting typing-extensions>=4.10.0 (from torch->openai-whisper)
+  Using cached typing_extensions-4.15.0-py3-none-any.whl.metadata (3.3 kB)
+Collecting setuptools<82 (from torch->openai-whisper)
+  Downloading setuptools-81.0.0-py3-none-any.whl.metadata (6.6 kB)
+Collecting sympy>=1.13.3 (from torch->openai-whisper)
+  Downloading sympy-1.14.0-py3-none-any.whl.metadata (12 kB)
+Collecting networkx>=2.5.1 (from torch->openai-whisper)
+  Downloading networkx-3.6.1-py3-none-any.whl.metadata (6.8 kB)
+Collecting jinja2 (from torch->openai-whisper)
+  Using cached jinja2-3.1.6-py3-none-any.whl.metadata (2.9 kB)
+Collecting fsspec>=0.8.5 (from torch->openai-whisper)
+  Downloading fsspec-2026.3.0-py3-none-any.whl.metadata (10 kB)
+Collecting cuda-toolkit==13.0.2 (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==13.0.2; platform_system == "Linux"->torch->openai-whisper)
+  Downloading cuda_toolkit-13.0.2-py2.py3-none-any.whl.metadata (9.4 kB)
+Collecting cuda-bindings<14,>=13.0.3 (from torch->openai-whisper)
+  Downloading cuda_bindings-13.2.0-cp312-cp312-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl.metadata (2.3 kB)
+Collecting nvidia-cudnn-cu13==9.19.0.56 (from torch->openai-whisper)
+  Downloading nvidia_cudnn_cu13-9.19.0.56-py3-none-manylinux_2_27_x86_64.whl.metadata (1.9 kB)
+Collecting nvidia-cusparselt-cu13==0.8.0 (from torch->openai-whisper)
+  Downloading nvidia_cusparselt_cu13-0.8.0-py3-none-manylinux2014_x86_64.whl.metadata (12 kB)
+Collecting nvidia-nccl-cu13==2.28.9 (from torch->openai-whisper)
+  Downloading nvidia_nccl_cu13-2.28.9-py3-none-manylinux_2_18_x86_64.whl.metadata (2.0 kB)
+Collecting nvidia-nvshmem-cu13==3.4.5 (from torch->openai-whisper)
+  Downloading nvidia_nvshmem_cu13-3.4.5-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (2.1 kB)
+Collecting nvidia-cublas==13.1.0.3.* (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==13.0.2; platform_system == "Linux"->torch->openai-whisper)
+  Downloading nvidia_cublas-13.1.0.3-py3-none-manylinux_2_27_x86_64.whl.metadata (1.7 kB)
+Collecting nvidia-cuda-runtime==13.0.96.* (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==13.0.2; platform_system == "Linux"->torch->openai-whisper)
+  Downloading nvidia_cuda_runtime-13.0.96-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (1.7 kB)
+Collecting nvidia-cufft==12.0.0.61.* (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==13.0.2; platform_system == "Linux"->torch->openai-whisper)
+  Downloading nvidia_cufft-12.0.0.61-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (1.8 kB)
+Collecting nvidia-cufile==1.15.1.6.* (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==13.0.2; platform_system == "Linux"->torch->openai-whisper)
+  Downloading nvidia_cufile-1.15.1.6-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (1.7 kB)
+Collecting nvidia-cuda-cupti==13.0.85.* (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==13.0.2; platform_system == "Linux"->torch->openai-whisper)
+  Downloading nvidia_cuda_cupti-13.0.85-py3-none-manylinux_2_25_x86_64.whl.metadata (1.7 kB)
+Collecting nvidia-curand==10.4.0.35.* (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==13.0.2; platform_system == "Linux"->torch->openai-whisper)
+  Downloading nvidia_curand-10.4.0.35-py3-none-manylinux_2_27_x86_64.whl.metadata (1.7 kB)
+Collecting nvidia-cusolver==12.0.4.66.* (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==13.0.2; platform_system == "Linux"->torch->openai-whisper)
+  Downloading nvidia_cusolver-12.0.4.66-py3-none-manylinux_2_27_x86_64.whl.metadata (1.8 kB)
+Collecting nvidia-cusparse==12.6.3.3.* (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==13.0.2; platform_system == "Linux"->torch->openai-whisper)
+  Downloading nvidia_cusparse-12.6.3.3-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (1.8 kB)
+Collecting nvidia-nvjitlink==13.0.88.* (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==13.0.2; platform_system == "Linux"->torch->openai-whisper)
+  Downloading nvidia_nvjitlink-13.0.88-py3-none-manylinux2010_x86_64.manylinux_2_12_x86_64.whl.metadata (1.7 kB)
+Collecting nvidia-cuda-nvrtc==13.0.88.* (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==13.0.2; platform_system == "Linux"->torch->openai-whisper)
+  Downloading nvidia_cuda_nvrtc-13.0.88-py3-none-manylinux2010_x86_64.manylinux_2_12_x86_64.whl.metadata (1.7 kB)
+Collecting nvidia-nvtx==13.0.85.* (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==13.0.2; platform_system == "Linux"->torch->openai-whisper)
+  Downloading nvidia_nvtx-13.0.85-py3-none-manylinux1_x86_64.manylinux_2_5_x86_64.whl.metadata (1.8 kB)
+Collecting cuda-pathfinder~=1.1 (from cuda-bindings<14,>=13.0.3->torch->openai-whisper)
+  Downloading cuda_pathfinder-1.5.4-py3-none-any.whl.metadata (1.9 kB)
+Collecting charset_normalizer<4,>=2 (from requests>=2.26.0->tiktoken->openai-whisper)
+  Downloading charset_normalizer-3.4.7-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (40 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 40.9/40.9 kB 270.2 kB/s eta 0:00:00
+Collecting idna<4,>=2.5 (from requests>=2.26.0->tiktoken->openai-whisper)
+  Downloading idna-3.13-py3-none-any.whl.metadata (8.0 kB)
+Collecting urllib3<3,>=1.26 (from requests>=2.26.0->tiktoken->openai-whisper)
+  Using cached urllib3-2.6.3-py3-none-any.whl.metadata (6.9 kB)
+Collecting certifi>=2023.5.7 (from requests>=2.26.0->tiktoken->openai-whisper)
+  Downloading certifi-2026.4.22-py3-none-any.whl.metadata (2.5 kB)
+Collecting mpmath<1.4,>=1.1.0 (from sympy>=1.13.3->torch->openai-whisper)
+  Downloading mpmath-1.3.0-py3-none-any.whl.metadata (8.6 kB)
+Collecting MarkupSafe>=2.0 (from jinja2->torch->openai-whisper)
+  Using cached markupsafe-3.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.7 kB)
+Downloading triton-3.6.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (188.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 188.3/188.3 MB 2.5 MB/s eta 0:00:00
+Downloading more_itertools-11.0.2-py3-none-any.whl (71 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 71.9/71.9 kB 101.9 kB/s eta 0:00:00
+Downloading numba-0.65.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (3.8 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.8/3.8 MB 7.3 MB/s eta 0:00:00
+Downloading numpy-2.4.4-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (16.6 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.6/16.6 MB 13.4 MB/s eta 0:00:00
+Using cached tiktoken-0.12.0-cp312-cp312-manylinux_2_28_x86_64.whl (1.2 MB)
+Downloading torch-2.11.0-cp312-cp312-manylinux_2_28_x86_64.whl (530.7 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 530.7/530.7 MB 692.3 kB/s eta 0:00:00
+Downloading cuda_toolkit-13.0.2-py2.py3-none-any.whl (2.4 kB)
+Downloading nvidia_cudnn_cu13-9.19.0.56-py3-none-manylinux_2_27_x86_64.whl (366.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 366.1/366.1 MB 773.8 kB/s eta 0:00:00
+Downloading nvidia_cusparselt_cu13-0.8.0-py3-none-manylinux2014_x86_64.whl (169.9 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 169.9/169.9 MB 1.7 MB/s eta 0:00:00
+Downloading nvidia_nccl_cu13-2.28.9-py3-none-manylinux_2_18_x86_64.whl (196.5 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 196.5/196.5 MB 1.1 MB/s eta 0:00:00
+Downloading nvidia_nvshmem_cu13-3.4.5-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (60.4 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 60.4/60.4 MB 3.3 MB/s eta 0:00:00
+Downloading nvidia_cublas-13.1.0.3-py3-none-manylinux_2_27_x86_64.whl (423.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 423.1/423.1 MB 775.0 kB/s eta 0:00:00
+Downloading nvidia_cuda_cupti-13.0.85-py3-none-manylinux_2_25_x86_64.whl (10.7 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 10.7/10.7 MB 10.7 MB/s eta 0:00:00
+Downloading nvidia_cuda_nvrtc-13.0.88-py3-none-manylinux2010_x86_64.manylinux_2_12_x86_64.whl (90.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 90.2/90.2 MB 4.3 MB/s eta 0:00:00
+Downloading nvidia_cuda_runtime-13.0.96-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (2.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.2/2.2 MB 5.4 MB/s eta 0:00:00
+Downloading nvidia_cufft-12.0.0.61-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (214.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 214.1/214.1 MB 1.7 MB/s eta 0:00:00
+Downloading nvidia_cufile-1.15.1.6-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (1.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.2/1.2 MB 4.0 MB/s eta 0:00:00
+Downloading nvidia_curand-10.4.0.35-py3-none-manylinux_2_27_x86_64.whl (59.5 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 59.5/59.5 MB 4.8 MB/s eta 0:00:00
+Downloading nvidia_cusolver-12.0.4.66-py3-none-manylinux_2_27_x86_64.whl (200.9 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 200.9/200.9 MB 1.3 MB/s eta 0:00:00
+Downloading nvidia_cusparse-12.6.3.3-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (145.9 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 145.9/145.9 MB 2.6 MB/s eta 0:00:00
+Downloading nvidia_nvjitlink-13.0.88-py3-none-manylinux2010_x86_64.manylinux_2_12_x86_64.whl (40.7 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 40.7/40.7 MB 7.2 MB/s eta 0:00:00
+Downloading nvidia_nvtx-13.0.85-py3-none-manylinux1_x86_64.manylinux_2_5_x86_64.whl (148 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 148.0/148.0 kB 1.4 MB/s eta 0:00:00
+Downloading tqdm-4.67.3-py3-none-any.whl (78 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 78.4/78.4 kB 694.5 kB/s eta 0:00:00
+Downloading cuda_bindings-13.2.0-cp312-cp312-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl (6.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.3/6.3 MB 5.1 MB/s eta 0:00:00
+Downloading fsspec-2026.3.0-py3-none-any.whl (202 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 202.6/202.6 kB 473.6 kB/s eta 0:00:00
+Downloading llvmlite-0.47.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (56.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 56.3/56.3 MB 6.6 MB/s eta 0:00:00
+Downloading networkx-3.6.1-py3-none-any.whl (2.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.1/2.1 MB 6.3 MB/s eta 0:00:00
+Downloading regex-2026.4.4-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (801 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 801.1/801.1 kB 4.7 MB/s eta 0:00:00
+Downloading requests-2.33.1-py3-none-any.whl (64 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 64.9/64.9 kB 583.1 kB/s eta 0:00:00
+Downloading setuptools-81.0.0-py3-none-any.whl (1.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.1/1.1 MB 5.3 MB/s eta 0:00:00
+Downloading sympy-1.14.0-py3-none-any.whl (6.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.3/6.3 MB 11.5 MB/s eta 0:00:00
+Using cached typing_extensions-4.15.0-py3-none-any.whl (44 kB)
+Downloading filelock-3.29.0-py3-none-any.whl (39 kB)
+Using cached jinja2-3.1.6-py3-none-any.whl (134 kB)
+Downloading certifi-2026.4.22-py3-none-any.whl (135 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 135.7/135.7 kB 1.2 MB/s eta 0:00:00
+Downloading charset_normalizer-3.4.7-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (216 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 216.6/216.6 kB 1.7 MB/s eta 0:00:00
+Downloading cuda_pathfinder-1.5.4-py3-none-any.whl (51 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 51.7/51.7 kB 380.7 kB/s eta 0:00:00
+Downloading idna-3.13-py3-none-any.whl (68 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 68.6/68.6 kB 568.3 kB/s eta 0:00:00
+Using cached markupsafe-3.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (22 kB)
+Downloading mpmath-1.3.0-py3-none-any.whl (536 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 536.2/536.2 kB 3.4 MB/s eta 0:00:00
+Downloading urllib3-2.6.3-py3-none-any.whl (131 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 131.6/131.6 kB 754.0 kB/s eta 0:00:00
+Building wheels for collected packages: openai-whisper
+  Building wheel for openai-whisper (pyproject.toml) ... done
+  Created wheel for openai-whisper: filename=openai_whisper-20250625-py3-none-any.whl size=803979 sha256=af37f8396fe403631fc773aa86032f71d8ea9b7a2506b1b28983d132f48093dc
+  Stored in directory: /home/vrao/.cache/pip/wheels/61/d2/20/09ec9bef734d126cba375b15898010b6cc28578d8afdde5869
+Successfully built openai-whisper
+Installing collected packages: nvidia-cusparselt-cu13, mpmath, cuda-toolkit, urllib3, typing-extensions, triton, tqdm, sympy, setuptools, regex, nvidia-nvtx, nvidia-nvshmem-cu13, nvidia-nvjitlink, nvidia-nccl-cu13, nvidia-curand, nvidia-cufile, nvidia-cuda-runtime, nvidia-cuda-nvrtc, nvidia-cuda-cupti, nvidia-cublas, numpy, networkx, more-itertools, MarkupSafe, llvmlite, idna, fsspec, filelock, cuda-pathfinder, charset_normalizer, certifi, requests, nvidia-cusparse, nvidia-cufft, nvidia-cudnn-cu13, numba, jinja2, cuda-bindings, tiktoken, nvidia-cusolver, torch, openai-whisper
+Successfully installed MarkupSafe-3.0.3 certifi-2026.4.22 charset_normalizer-3.4.7 cuda-bindings-13.2.0 cuda-pathfinder-1.5.4 cuda-toolkit-13.0.2 filelock-3.29.0 fsspec-2026.3.0 idna-3.13 jinja2-3.1.6 llvmlite-0.47.0 more-itertools-11.0.2 mpmath-1.3.0 networkx-3.6.1 numba-0.65.1 numpy-2.4.4 nvidia-cublas-13.1.0.3 nvidia-cuda-cupti-13.0.85 nvidia-cuda-nvrtc-13.0.88 nvidia-cuda-runtime-13.0.96 nvidia-cudnn-cu13-9.19.0.56 nvidia-cufft-12.0.0.61 nvidia-cufile-1.15.1.6 nvidia-curand-10.4.0.35 nvidia-cusolver-12.0.4.66 nvidia-cusparse-12.6.3.3 nvidia-cusparselt-cu13-0.8.0 nvidia-nccl-cu13-2.28.9 nvidia-nvjitlink-13.0.88 nvidia-nvshmem-cu13-3.4.5 nvidia-nvtx-13.0.85 openai-whisper-20250625 regex-2026.4.4 requests-2.33.1 setuptools-81.0.0 sympy-1.14.0 tiktoken-0.12.0 torch-2.11.0 tqdm-4.67.3 triton-3.6.0 typing-extensions-4.15.0 urllib3-2.6.3
+vrao@aspire:~/whisper$ whisper --version
+Command 'whisper' not found, did you mean:
+  command 'whipper' from deb whipper (0.10.0-2build3)
+Try: sudo apt install <deb name>
+vrao@aspire:~/whisper$ openai-whisper --version
+openai-whisper: command not found
+vrao@aspire:~/whisper$ pip install --upgrade --no-deps --force-reinstall git+https://github.com/openai/whisper.git
+error: externally-managed-environment
+
+× This environment is externally managed
+╰─> To install Python packages system-wide, try apt install
+    python3-xyz, where xyz is the package you are trying to
+    install.
+    
+    If you wish to install a non-Debian-packaged Python package,
+    create a virtual environment using python3 -m venv path/to/venv.
+    Then use path/to/venv/bin/python and path/to/venv/bin/pip. Make
+    sure you have python3-full installed.
+    
+    If you wish to install a non-Debian packaged Python application,
+    it may be easiest to use pipx install xyz, which will manage a
+    virtual environment for you. Make sure you have pipx installed.
+    
+    See /usr/share/doc/python3.12/README.venv for more information.
+
+note: If you believe this is a mistake, please contact your Python installation or OS distribution provider. You can override this, at the risk of breaking your Python installation or OS, by passing --break-system-packages.
+hint: See PEP 668 for the detailed specification.
+vrao@aspire:~/whisper$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	bin/
+	lib/
+	lib64
+	pyvenv.cfg
+	share/
+
+nothing added to commit but untracked files present (use "git add" to track)
+vrao@aspire:~/whisper$ git ls
+git: 'ls' is not a git command. See 'git --help'.
+
+The most similar command is
+	log
+vrao@aspire:~/whisper$ pip install git+https://github.com/openai/whisper.git 
+error: externally-managed-environment
+
+× This environment is externally managed
+╰─> To install Python packages system-wide, try apt install
+    python3-xyz, where xyz is the package you are trying to
+    install.
+    
+    If you wish to install a non-Debian-packaged Python package,
+    create a virtual environment using python3 -m venv path/to/venv.
+    Then use path/to/venv/bin/python and path/to/venv/bin/pip. Make
+    sure you have python3-full installed.
+    
+    If you wish to install a non-Debian packaged Python application,
+    it may be easiest to use pipx install xyz, which will manage a
+    virtual environment for you. Make sure you have pipx installed.
+    
+    See /usr/share/doc/python3.12/README.venv for more information.
+
+note: If you believe this is a mistake, please contact your Python installation or OS distribution provider. You can override this, at the risk of breaking your Python installation or OS, by passing --break-system-packages.
+hint: See PEP 668 for the detailed specification.
+vrao@aspire:~/whisper$ apt install python3-openai-whisper
+E: Could not open lock file /var/lib/dpkg/lock-frontend - open (13: Permission denied)
+E: Unable to acquire the dpkg frontend lock (/var/lib/dpkg/lock-frontend), are you root?
+vrao@aspire:~/whisper$ cd ../
+vrao@aspire:~$ apt install python3-openai-whisper
+E: Could not open lock file /var/lib/dpkg/lock-frontend - open (13: Permission denied)
+E: Unable to acquire the dpkg frontend lock (/var/lib/dpkg/lock-frontend), are you root?
+vrao@aspire:~$ pip install git+https://github.com/openai/whisper.git 
+error: externally-managed-environment
+
+× This environment is externally managed
+╰─> To install Python packages system-wide, try apt install
+    python3-xyz, where xyz is the package you are trying to
+    install.
+    
+    If you wish to install a non-Debian-packaged Python package,
+    create a virtual environment using python3 -m venv path/to/venv.
+    Then use path/to/venv/bin/python and path/to/venv/bin/pip. Make
+    sure you have python3-full installed.
+    
+    If you wish to install a non-Debian packaged Python application,
+    it may be easiest to use pipx install xyz, which will manage a
+    virtual environment for you. Make sure you have pipx installed.
+    
+    See /usr/share/doc/python3.12/README.venv for more information.
+
+note: If you believe this is a mistake, please contact your Python installation or OS distribution provider. You can override this, at the risk of breaking your Python installation or OS, by passing --break-system-packages.
+hint: See PEP 668 for the detailed specification.
+vrao@aspire:~$ pip install -U openai-whisper
+error: externally-managed-environment
+
+× This environment is externally managed
+╰─> To install Python packages system-wide, try apt install
+    python3-xyz, where xyz is the package you are trying to
+    install.
+    
+    If you wish to install a non-Debian-packaged Python package,
+    create a virtual environment using python3 -m venv path/to/venv.
+    Then use path/to/venv/bin/python and path/to/venv/bin/pip. Make
+    sure you have python3-full installed.
+    
+    If you wish to install a non-Debian packaged Python application,
+    it may be easiest to use pipx install xyz, which will manage a
+    virtual environment for you. Make sure you have pipx installed.
+    
+    See /usr/share/doc/python3.12/README.venv for more information.
+
+note: If you believe this is a mistake, please contact your Python installation or OS distribution provider. You can override this, at the risk of breaking your Python installation or OS, by passing --break-system-packages.
+hint: See PEP 668 for the detailed specification.
+vrao@aspire:~$ ./whisper/bin/pip install -U openai-whisper
+Requirement already satisfied: openai-whisper in ./whisper/lib/python3.12/site-packages (20250625)
+Requirement already satisfied: more-itertools in ./whisper/lib/python3.12/site-packages (from openai-whisper) (11.0.2)
+Requirement already satisfied: numba in ./whisper/lib/python3.12/site-packages (from openai-whisper) (0.65.1)
+Requirement already satisfied: numpy in ./whisper/lib/python3.12/site-packages (from openai-whisper) (2.4.4)
+Requirement already satisfied: tiktoken in ./whisper/lib/python3.12/site-packages (from openai-whisper) (0.12.0)
+Requirement already satisfied: torch in ./whisper/lib/python3.12/site-packages (from openai-whisper) (2.11.0)
+Requirement already satisfied: tqdm in ./whisper/lib/python3.12/site-packages (from openai-whisper) (4.67.3)
+Requirement already satisfied: triton>=2 in ./whisper/lib/python3.12/site-packages (from openai-whisper) (3.6.0)
+Requirement already satisfied: llvmlite<0.48,>=0.47.0dev0 in ./whisper/lib/python3.12/site-packages (from numba->openai-whisper) (0.47.0)
+Requirement already satisfied: regex>=2022.1.18 in ./whisper/lib/python3.12/site-packages (from tiktoken->openai-whisper) (2026.4.4)
+Requirement already satisfied: requests>=2.26.0 in ./whisper/lib/python3.12/site-packages (from tiktoken->openai-whisper) (2.33.1)
+Requirement already satisfied: filelock in ./whisper/lib/python3.12/site-packages (from torch->openai-whisper) (3.29.0)
+Requirement already satisfied: typing-extensions>=4.10.0 in ./whisper/lib/python3.12/site-packages (from torch->openai-whisper) (4.15.0)
+Requirement already satisfied: setuptools<82 in ./whisper/lib/python3.12/site-packages (from torch->openai-whisper) (81.0.0)
+Requirement already satisfied: sympy>=1.13.3 in ./whisper/lib/python3.12/site-packages (from torch->openai-whisper) (1.14.0)
+Requirement already satisfied: networkx>=2.5.1 in ./whisper/lib/python3.12/site-packages (from torch->openai-whisper) (3.6.1)
+Requirement already satisfied: jinja2 in ./whisper/lib/python3.12/site-packages (from torch->openai-whisper) (3.1.6)
+Requirement already satisfied: fsspec>=0.8.5 in ./whisper/lib/python3.12/site-packages (from torch->openai-whisper) (2026.3.0)
+Requirement already satisfied: cuda-toolkit==13.0.2 in ./whisper/lib/python3.12/site-packages (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==13.0.2; platform_system == "Linux"->torch->openai-whisper) (13.0.2)
+Requirement already satisfied: cuda-bindings<14,>=13.0.3 in ./whisper/lib/python3.12/site-packages (from torch->openai-whisper) (13.2.0)
+Requirement already satisfied: nvidia-cudnn-cu13==9.19.0.56 in ./whisper/lib/python3.12/site-packages (from torch->openai-whisper) (9.19.0.56)
+Requirement already satisfied: nvidia-cusparselt-cu13==0.8.0 in ./whisper/lib/python3.12/site-packages (from torch->openai-whisper) (0.8.0)
+Requirement already satisfied: nvidia-nccl-cu13==2.28.9 in ./whisper/lib/python3.12/site-packages (from torch->openai-whisper) (2.28.9)
+Requirement already satisfied: nvidia-nvshmem-cu13==3.4.5 in ./whisper/lib/python3.12/site-packages (from torch->openai-whisper) (3.4.5)
+Requirement already satisfied: nvidia-cublas==13.1.0.3.* in ./whisper/lib/python3.12/site-packages (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==13.0.2; platform_system == "Linux"->torch->openai-whisper) (13.1.0.3)
+Requirement already satisfied: nvidia-cuda-runtime==13.0.96.* in ./whisper/lib/python3.12/site-packages (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==13.0.2; platform_system == "Linux"->torch->openai-whisper) (13.0.96)
+Requirement already satisfied: nvidia-cufft==12.0.0.61.* in ./whisper/lib/python3.12/site-packages (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==13.0.2; platform_system == "Linux"->torch->openai-whisper) (12.0.0.61)
+Requirement already satisfied: nvidia-cufile==1.15.1.6.* in ./whisper/lib/python3.12/site-packages (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==13.0.2; platform_system == "Linux"->torch->openai-whisper) (1.15.1.6)
+Requirement already satisfied: nvidia-cuda-cupti==13.0.85.* in ./whisper/lib/python3.12/site-packages (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==13.0.2; platform_system == "Linux"->torch->openai-whisper) (13.0.85)
+Requirement already satisfied: nvidia-curand==10.4.0.35.* in ./whisper/lib/python3.12/site-packages (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==13.0.2; platform_system == "Linux"->torch->openai-whisper) (10.4.0.35)
+Requirement already satisfied: nvidia-cusolver==12.0.4.66.* in ./whisper/lib/python3.12/site-packages (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==13.0.2; platform_system == "Linux"->torch->openai-whisper) (12.0.4.66)
+Requirement already satisfied: nvidia-cusparse==12.6.3.3.* in ./whisper/lib/python3.12/site-packages (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==13.0.2; platform_system == "Linux"->torch->openai-whisper) (12.6.3.3)
+Requirement already satisfied: nvidia-nvjitlink==13.0.88.* in ./whisper/lib/python3.12/site-packages (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==13.0.2; platform_system == "Linux"->torch->openai-whisper) (13.0.88)
+Requirement already satisfied: nvidia-cuda-nvrtc==13.0.88.* in ./whisper/lib/python3.12/site-packages (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==13.0.2; platform_system == "Linux"->torch->openai-whisper) (13.0.88)
+Requirement already satisfied: nvidia-nvtx==13.0.85.* in ./whisper/lib/python3.12/site-packages (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==13.0.2; platform_system == "Linux"->torch->openai-whisper) (13.0.85)
+Requirement already satisfied: cuda-pathfinder~=1.1 in ./whisper/lib/python3.12/site-packages (from cuda-bindings<14,>=13.0.3->torch->openai-whisper) (1.5.4)
+Requirement already satisfied: charset_normalizer<4,>=2 in ./whisper/lib/python3.12/site-packages (from requests>=2.26.0->tiktoken->openai-whisper) (3.4.7)
+Requirement already satisfied: idna<4,>=2.5 in ./whisper/lib/python3.12/site-packages (from requests>=2.26.0->tiktoken->openai-whisper) (3.13)
+Requirement already satisfied: urllib3<3,>=1.26 in ./whisper/lib/python3.12/site-packages (from requests>=2.26.0->tiktoken->openai-whisper) (2.6.3)
+Requirement already satisfied: certifi>=2023.5.7 in ./whisper/lib/python3.12/site-packages (from requests>=2.26.0->tiktoken->openai-whisper) (2026.4.22)
+Requirement already satisfied: mpmath<1.4,>=1.1.0 in ./whisper/lib/python3.12/site-packages (from sympy>=1.13.3->torch->openai-whisper) (1.3.0)
+Requirement already satisfied: MarkupSafe>=2.0 in ./whisper/lib/python3.12/site-packages (from jinja2->torch->openai-whisper) (3.0.3)
+vrao@aspire:~$ ls
+coverLetter5GSlice.txt  Downloads          notes.txt                Public            weather-etl-sqldb-graph
+coverLetterBV.txt       first-task-tests   oracle_agent_Passed.txt  snap              weather-etl-sqldb-graph.zip
+Desktop                 jobs               output                   snorkel-tb-tasks  weather_output_backup
+docker-compose.sh       mariaDB_mcpserver  pcg64-testset-1.csv      Templates         whisper
+docker-compose.yml      Music              Pictures                 URL               workshopPic.jpg
+Documents               notes              projects                 Videos
+vrao@aspire:~$ ls -lrt
+total 1124
+drwxr-xr-x  2 vrao vrao     4096 Sep 28  2024 Videos
+drwxr-xr-x  2 vrao vrao     4096 Sep 28  2024 Templates
+drwxr-xr-x  2 vrao vrao     4096 Sep 28  2024 Public
+drwxr-xr-x  2 vrao vrao     4096 Sep 28  2024 Music
+drwxr-xr-x  2 vrao vrao     4096 Sep 28  2024 Documents
+drwxr-xr-x  3 vrao vrao     4096 Nov  2 11:42 Desktop
+drwxr-xr-x  4 vrao vrao     4096 Nov  6 10:12 Pictures
+-rw-rw-r--  1 vrao docker    929 Nov 10 10:15 docker-compose.sh
+-rw-rw-r--  1 vrao vrao     6533 Nov 17 23:36 first-task-tests
+-rw-rw-r--  1 vrao vrao       41 Nov 26 15:25 URL
+-rw-rw-r--  1 vrao vrao     2253 Nov 26 16:00 notes.txt
+-rw-rw-r--  1 vrao vrao     5496 Nov 30 11:03 oracle_agent_Passed.txt
+drwxrwxr-x  3 vrao vrao     4096 Dec 28 07:29 snorkel-tb-tasks
+-rwxrwxrwx  1 vrao vrao      406 Jan  9 14:49 docker-compose.yml
+drwxr-xr-x  3 vrao vrao     4096 Jan 10 23:59 weather_output_backup
+-rw-rw-r--  1 vrao vrao   932333 Jan 24 06:33 weather-etl-sqldb-graph.zip
+-rw-rw-r--  1 vrao vrao      577 Jan 26 11:00 notes
+drwxrwxr-x  8 vrao vrao     4096 Feb 19 17:31 jobs
+-rw-rw-r--  1 vrao vrao    68692 Feb 23 13:25 workshopPic.jpg
+drwxrwxr-x  3 vrao vrao     4096 Feb 24 14:45 output
+drwxrwxr-x 10 vrao vrao     4096 Mar 10 14:32 weather-etl-sqldb-graph
+drwxrwxr-x  3 vrao vrao     4096 Mar 23 11:50 mariaDB_mcpserver
+-rw-rw-r--  1 vrao vrao    23839 Mar 24 10:47 pcg64-testset-1.csv
+drwx------ 13 vrao vrao     4096 Apr  6 17:15 snap
+drwxrwxr-x  3 vrao vrao     4096 Apr  9 17:13 projects
+-rw-rw-r--  1 vrao vrao     2417 Apr 20 09:28 coverLetterBV.txt
+-rw-rw-r--  1 vrao vrao     3115 Apr 20 12:15 coverLetter5GSlice.txt
+drwxr-xr-x  2 vrao vrao    12288 Apr 28 11:25 Downloads
+drwxrwxr-x 12 vrao vrao     4096 Apr 28 11:37 whisper
+vrao@aspire:~$ pip install git+https://github.com/openai/whisper.git 
+error: externally-managed-environment
+
+× This environment is externally managed
+╰─> To install Python packages system-wide, try apt install
+    python3-xyz, where xyz is the package you are trying to
+    install.
+    
+    If you wish to install a non-Debian-packaged Python package,
+    create a virtual environment using python3 -m venv path/to/venv.
+    Then use path/to/venv/bin/python and path/to/venv/bin/pip. Make
+    sure you have python3-full installed.
+    
+    If you wish to install a non-Debian packaged Python application,
+    it may be easiest to use pipx install xyz, which will manage a
+    virtual environment for you. Make sure you have pipx installed.
+    
+    See /usr/share/doc/python3.12/README.venv for more information.
+
+note: If you believe this is a mistake, please contact your Python installation or OS distribution provider. You can override this, at the risk of breaking your Python installation or OS, by passing --break-system-packages.
+hint: See PEP 668 for the detailed specification.
+vrao@aspire:~$ pip install --upgrade --no-deps --force-reinstall git+https://github.com/openai/whisper.git
+error: externally-managed-environment
+
+× This environment is externally managed
+╰─> To install Python packages system-wide, try apt install
+    python3-xyz, where xyz is the package you are trying to
+    install.
+    
+    If you wish to install a non-Debian-packaged Python package,
+    create a virtual environment using python3 -m venv path/to/venv.
+    Then use path/to/venv/bin/python and path/to/venv/bin/pip. Make
+    sure you have python3-full installed.
+    
+    If you wish to install a non-Debian packaged Python application,
+    it may be easiest to use pipx install xyz, which will manage a
+    virtual environment for you. Make sure you have pipx installed.
+    
+    See /usr/share/doc/python3.12/README.venv for more information.
+
+note: If you believe this is a mistake, please contact your Python installation or OS distribution provider. You can override this, at the risk of breaking your Python installation or OS, by passing --break-system-packages.
+hint: See PEP 668 for the detailed specification.
+vrao@aspire:~$ ps -ef | grep venv
+vrao     3028475 2491546  0 11:48 pts/12   00:00:00 grep --color=auto venv
+vrao@aspire:~$ ps -ef | grep whisper
+vrao     3028486 2491546  0 11:48 pts/12   00:00:00 grep --color=auto whisper
+vrao@aspire:~$ cd whisper/
+vrao@aspire:~/whisper$ ls
+approach.png  CHANGELOG.md  include                 lib    LICENSE      model-card.md  pyproject.toml  README.md         share  whisper
+bin           data          language-breakdown.svg  lib64  MANIFEST.in  notebooks      pyvenv.cfg      requirements.txt  tests
+vrao@aspire:~/whisper$ cd bin
+vrao@aspire:~/whisper/bin$ ls
+activate      activate.fish  f2py    normalizer  numpy-config  pip3     proton         python   python3.12    torchrun  whisper
+activate.csh  Activate.ps1   isympy  numba       pip           pip3.12  proton-viewer  python3  torchfrtrace  tqdm
+vrao@aspire:~/whisper/bin$ ./activate
+bash: ./activate: Permission denied
+vrao@aspire:~/whisper/bin$ source activate
+(whisper) vrao@aspire:~/whisper/bin$ 
+(whisper) vrao@aspire:~/whisper/bin$ 
+(whisper) vrao@aspire:~/whisper/bin$ 
+(whisper) vrao@aspire:~/whisper/bin$ which python
+/home/vrao/whisper/bin/python
+(whisper) vrao@aspire:~/whisper/bin$ which openai-whisper
+(whisper) vrao@aspire:~/whisper/bin$ which whisper
+/home/vrao/whisper/bin/whisper
+(whisper) vrao@aspire:~/whisper/bin$ pip install --upgrade --no-deps --force-reinstall git+https://github.com/openai/whisper.git
+Collecting git+https://github.com/openai/whisper.git
+  Cloning https://github.com/openai/whisper.git to /tmp/pip-req-build-f72u3h2n
+  Running command git clone --filter=blob:none --quiet https://github.com/openai/whisper.git /tmp/pip-req-build-f72u3h2n
+  Resolved https://github.com/openai/whisper.git to commit 04f449b8a437f1bbd3dba5c9f826aca972e7709a
+  Installing build dependencies ... done
+  Getting requirements to build wheel ... done
+  Preparing metadata (pyproject.toml) ... done
+Building wheels for collected packages: openai-whisper
+  Building wheel for openai-whisper (pyproject.toml) ... done
+  Created wheel for openai-whisper: filename=openai_whisper-20250625-py3-none-any.whl size=803979 sha256=ab32582fc110cc7e59b8f29c434e6132de34d1af242a44bf02bf1b917a68d4ee
+  Stored in directory: /tmp/pip-ephem-wheel-cache-gzuc1j5c/wheels/c3/03/25/5e0ba78bc27a3a089f137c9f1d92fdfce16d06996c071a016c
+Successfully built openai-whisper
+Installing collected packages: openai-whisper
+  Attempting uninstall: openai-whisper
+    Found existing installation: openai-whisper 20250625
+    Uninstalling openai-whisper-20250625:
+      Successfully uninstalled openai-whisper-20250625
+Successfully installed openai-whisper-20250625
+(whisper) vrao@aspire:~/whisper/bin$ 
+
+
